@@ -30,7 +30,7 @@ fn find_hyperscan() -> Result<PathBuf> {
             link_libs.push(format!("{}=hs", link_kind));
 
             if cfg!(feature = "static") {
-                link_libs.push("c++".into());
+                link_libs.push("stdc++".into());
             }
         }
 

@@ -1,5 +1,7 @@
-use std::env;
-use std::path::{Path, PathBuf};
+use std::{
+    env,
+    path::{Path, PathBuf},
+};
 
 use anyhow::{anyhow, bail, Context, Result};
 
@@ -30,7 +32,7 @@ fn find_hyperscan() -> Result<PathBuf> {
             link_libs.push(format!("{}=hs", link_kind));
 
             if cfg!(feature = "static") {
-                link_libs.push("stdc++".into());
+                link_libs.push("static:-bundle=stdc++".into());
             }
         }
 
